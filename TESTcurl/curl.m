@@ -1,0 +1,12 @@
+function C = curl(F,dim)% 计算三维矢量场的旋度% 输入：F是一个三维矢量场，dim是网格的分辨率% 输出：C是一个三维矢量场，表示旋度
+Fx = F(:,:,1); % x方向的分量
+Fy = F(:,:,2); % y方向的分量
+Fz = F(:,:,3); % z方向的分量
+%[~,dFzdy,dFzdx] = gradient(Fz,dim,dim,dim); % 计算Fz的偏导数
+[~,dFzdy,dFzdx] = gradient(Fz);
+[dFydz,~,dFydx] = gradient(Fy,dim,dim,dim); % 计算Fy的偏导数
+[dFxdy,dFxdz,~] = gradient(Fx,dim,dim,dim); % 计算Fx的偏导数
+Cx = dFydz-dFzdy; % x方向的旋度分量
+Cy = dFzdx-dFxz; % y方向的旋度分量
+Cz = dFxdy-dFydx; % z方向的旋度分量
+C = cat(3,Cx,Cy,Cz); % 合并旋度分量end
