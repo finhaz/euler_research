@@ -1,4 +1,4 @@
-%ǰ��ŷ����
+%前向欧拉法
 clear;
 format long;
 a = 0;

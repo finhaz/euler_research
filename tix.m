@@ -1,4 +1,4 @@
-%���η�/˫���Ա任��
+%梯形法/双线性变换法
 clear;
 format long;
 a = 0;
